@@ -76,7 +76,7 @@ class Homepage extends StatelessWidget {
           horizontal: 24,
         ),
         children: [
-          buildProfile(),
+          buildProfile(context),
           buildWalletCard(),
           buildLevel(),
           buildServices(),
@@ -89,7 +89,7 @@ class Homepage extends StatelessWidget {
   }
 }
 
-Widget buildProfile() {
+Widget buildProfile(BuildContext context) {
   return Container(
     margin: const EdgeInsets.only(
       top: 40,
@@ -112,30 +112,35 @@ Widget buildProfile() {
           ],
         ),
         const Spacer(),
-        Container(
-          width: 50,
-          height: 50,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage('assets/images/img_profile.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: BaseColors.neutral50,
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/profile');
+          },
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage('assets/images/img_profile.png'),
+                fit: BoxFit.cover,
               ),
-              width: 16,
-              height: 16,
-              child: Center(
-                child: Icon(
-                  Icons.check_circle,
-                  color: BaseColors.success500,
-                  size: 14,
+            ),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: BaseColors.neutral50,
+                ),
+                width: 16,
+                height: 16,
+                child: Center(
+                  child: Icon(
+                    Icons.check_circle,
+                    color: BaseColors.success500,
+                    size: 14,
+                  ),
                 ),
               ),
             ),
