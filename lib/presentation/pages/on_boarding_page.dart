@@ -30,7 +30,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +100,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                             CostumFilledButton(
                               title: 'Get Started',
                               onPressed: () {
-                                 Navigator.pushNamedAndRemoveUntil(
+                                Navigator.pushNamedAndRemoveUntil(
                                     context, '/sign-up', (route) => false);
                               },
                             ),
@@ -113,7 +112,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               height: 24,
                               child: TextButton(
                                 onPressed: () {
-                                   Navigator.pushNamedAndRemoveUntil(
+                                  Navigator.pushNamedAndRemoveUntil(
                                       context, '/sign-in', (route) => false);
                                 },
                                 style: TextButton.styleFrom(

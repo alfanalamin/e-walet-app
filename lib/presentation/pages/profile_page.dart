@@ -1,5 +1,6 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
+import 'package:ewallet/presentation/components/profile_menu_items.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -8,7 +9,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: BaseColors.neutral50,
       appBar: AppBar(
         backgroundColor: BaseColors.neutral50,
         elevation: 0,
@@ -16,16 +16,14 @@ class ProfilePage extends StatelessWidget {
         iconTheme: IconThemeData(
           color: BaseColors.neutral900,
         ),
-        title: Text(
+        title: const Text(
           'My Profile',
-          style: AppTheme.appTextTheme.largeNormalh3!
-              .copyWith(color: BaseColors.neutral900, fontFamily: 'Poppins'),
         ),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
-          const SizedBox(height: 40),
+          const SizedBox(height: 30),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
             decoration: BoxDecoration(
@@ -69,9 +67,48 @@ class ProfilePage extends StatelessWidget {
                   style: AppTheme.appTextTheme.largeNoneMedium!
                       .copyWith(color: BaseColors.neutral900),
                 ),
+                const SizedBox(height: 40),
+                ProfileMenuItem(
+                  title: 'Edit Profile',
+                  iconUrl: 'assets/images/ic_edit_profile.png',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  title: 'My Pin',
+                  iconUrl: 'assets/images/ic_pin.png',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  title: 'Wallet Setting',
+                  iconUrl: 'assets/images/ic_wallet.png',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  title: 'My Rewards',
+                  iconUrl: 'assets/images/ic_my_rewards.png',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  title: 'Help Center',
+                  iconUrl: 'assets/images/ic_help.png',
+                  onTap: () {},
+                ),
+                ProfileMenuItem(
+                  title: 'Logout',
+                  iconUrl: 'assets/images/ic_logout.png',
+                  onTap: () {},
+                ),
               ],
             ),
           ),
+          const SizedBox(height: 87),
+          Text(
+            'Version 0.0.1',
+            textAlign: TextAlign.center,
+            style: AppTheme.appTextTheme.smallNoneReguler!
+                .copyWith(color: BaseColors.neutral500),
+          ),
+          const SizedBox(height: 50),
         ],
       ),
     );
