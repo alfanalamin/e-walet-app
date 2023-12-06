@@ -1,3 +1,5 @@
+import 'package:ewallet/common/app_colors.dart';
+import 'package:ewallet/common/app_fonts.dart';
 import 'package:ewallet/presentation/pages/home_page.dart';
 import 'package:ewallet/presentation/pages/on_boarding_page.dart';
 import 'package:ewallet/presentation/pages/profile_page.dart';
@@ -23,6 +25,19 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: BaseColors.neutral50,
+          appBarTheme: AppBarTheme(
+            backgroundColor: BaseColors.neutral50,
+            elevation: 0,
+            centerTitle: true,
+            iconTheme: IconThemeData(
+              color: BaseColors.neutral900,
+            ),
+            titleTextStyle: AppTheme.appTextTheme.largeNormalh3!
+                .copyWith(color: BaseColors.neutral900, fontFamily: 'Poppins'),
+          ),
+        ),
         routes: {
           '/': (context) => const SplashScreen(),
           '/onboarding': (context) => const OnBoardingPage(),
