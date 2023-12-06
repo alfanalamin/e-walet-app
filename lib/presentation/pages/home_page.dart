@@ -415,7 +415,7 @@ Widget buildFriendlyTips() {
         ),
         const Wrap(
           spacing: 17,
-          runSpacing: 17,
+          runSpacing: 18,
           children: [
             HomeTipsItemPage(
               imageUrl: 'assets/images/img_tips1.png',
