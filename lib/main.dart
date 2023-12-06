@@ -1,5 +1,6 @@
 import 'package:ewallet/presentation/pages/home_page.dart';
 import 'package:ewallet/presentation/pages/on_boarding_page.dart';
+import 'package:ewallet/presentation/pages/profile_page.dart';
 import 'package:ewallet/presentation/pages/sign_in_page.dart';
 import 'package:ewallet/presentation/pages/sign_up_page.dart';
 import 'package:ewallet/presentation/pages/sign_up_set_ktp_page.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/sign-up-set-ktp': (context) => const SignUpSetPageKtp(),
           '/sign-up-success': (context) => const SignUpSuccessPage(),
           '/home': (context) => const Homepage(),
+          '/profile': (context) => const ProfilePage(),
         },
       ),
     );
