@@ -1,6 +1,7 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
 import 'package:ewallet/presentation/components/buttons.dart';
+import 'package:ewallet/presentation/components/forms.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -11,7 +12,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  bool _isObscure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,103 +52,25 @@ class _SignUpPageState extends State<SignUpPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Full Name',
-                      style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
-                        color: BaseColors.neutral900,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter your full name',
-                        hintStyle: AppTheme.appTextTheme.smallNoneMedium!
-                            .copyWith(
-                                color: BaseColors.neutral400,
-                                fontFamily: 'Poppins'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: BorderSide(
-                            color: BaseColors.neutral200,
-                          ),
-                        ),
-                        contentPadding: const EdgeInsets.all(12),
-                      ),
+                    const CustomFormField(
+                      title: 'Full Name',
+                      hint: 'Enter your full name',
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    Text(
-                      'Email Address',
-                      style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
-                        color: BaseColors.neutral900,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter your email address',
-                        hintStyle: AppTheme.appTextTheme.smallNoneMedium!
-                            .copyWith(
-                                color: BaseColors.neutral400,
-                                fontFamily: 'Poppins'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: BorderSide(
-                            color: BaseColors.neutral200,
-                          ),
-                        ),
-                        contentPadding: const EdgeInsets.all(12),
-                      ),
+                    const CustomFormField(
+                      title: 'Email Address',
+                      hint: 'Enter your email address',
                     ),
                     const SizedBox(
                       height: 16,
                     ),
-                    Text(
-                      'Password',
-                      style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
-                        color: BaseColors.neutral900,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      obscureText: _isObscure,
-                      decoration: InputDecoration(
-                        hintText: 'Enter your password',
-                        hintStyle: AppTheme.appTextTheme.smallNoneMedium!
-                            .copyWith(
-                                color: BaseColors.neutral400,
-                                fontFamily: 'Poppins'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: BorderSide(
-                            color: BaseColors.neutral200,
-                          ),
-                        ),
-                        contentPadding: const EdgeInsets.all(12),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                          icon: Icon(
-                            _isObscure
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                            color: BaseColors.neutral400,
-                          ),
-                        ),
-                      ),
+                    const CustomFormField(
+                      title: 'Password',
+                      obscureText: true,
+                      hint: 'Enter Your Password',
+                      showVisibilityIcon: true,
                     ),
                     const SizedBox(
                       height: 8,
