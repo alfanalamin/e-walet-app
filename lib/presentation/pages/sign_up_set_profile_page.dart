@@ -1,6 +1,7 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
 import 'package:ewallet/presentation/components/buttons.dart';
+import 'package:ewallet/presentation/components/forms.dart';
 import 'package:flutter/material.dart';
 
 class SignUpSetPageProfile extends StatefulWidget {
@@ -11,7 +12,6 @@ class SignUpSetPageProfile extends StatefulWidget {
 }
 
 class _SignUpSetPageProfileState extends State<SignUpSetPageProfile> {
-  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,18 +48,6 @@ class _SignUpSetPageProfileState extends State<SignUpSetPageProfile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Container(
-                //   width: 120,
-                //   height: 120,
-                //   decoration: BoxDecoration(
-                //     shape: BoxShape.circle,
-                //     color: BaseColors.neutral100,
-                //   ),
-                //   child: Image.asset(
-                //     'assets/images/ic_upload.png',
-                //     width: 30,
-                //   ),
-                // ),
                 Container(
                   width: 120,
                   height: 120,
@@ -83,50 +71,16 @@ class _SignUpSetPageProfileState extends State<SignUpSetPageProfile> {
                   ),
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 60,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Set PIN (6 digit number)',
-                      style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
-                        color: BaseColors.neutral900,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    TextFormField(
-                      obscureText: _isObscure,
-                      decoration: InputDecoration(
-                        hintText: 'Enter your PIN',
-                        hintStyle: AppTheme.appTextTheme.smallNoneMedium!
-                            .copyWith(
-                                color: BaseColors.neutral400,
-                                fontFamily: 'Poppins'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(14),
-                          borderSide: BorderSide(
-                            color: BaseColors.neutral200,
-                          ),
-                        ),
-                        contentPadding: const EdgeInsets.all(12),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                          icon: Icon(
-                            _isObscure
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                            color: BaseColors.neutral400,
-                          ),
-                        ),
-                      ),
+                    const CustomFormField(
+                      title: 'Set PIN (6 digit number)',
+                      obscureText: true,
+                      hint: 'Enter Your Password',
+                      showVisibilityIcon: true,
                     ),
                     const SizedBox(
                       height: 8,
