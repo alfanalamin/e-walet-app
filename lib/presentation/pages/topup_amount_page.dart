@@ -2,6 +2,8 @@ import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
 import 'package:ewallet/presentation/components/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -14,6 +16,25 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
   final TextEditingController _amountController =
       TextEditingController(text: '0');
 
+  @override
+  void initState() {
+    super.initState();
+    _amountController.addListener(() {
+      final text = _amountController.text;
+      _amountController.value = _amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          symbol: '',
+          decimalDigits: 0,
+        ).format(
+          int.parse(
+            text.replaceAll('.', ''),
+          ),
+        ),
+      );
+    });
+  }
+
   addAmont(String number) {
     if (_amountController.text == '0') {
       _amountController.text = '';
@@ -25,13 +46,15 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
 
   deleteAmount() {
     if (_amountController.text.isNotEmpty) {
-      setState(() {
-        _amountController.text = _amountController.text
-            .substring(0, _amountController.text.length - 1);
-        if (_amountController.text.isEmpty) {
-          _amountController.text = '0';
-        }
-      });
+      setState(
+        () {
+          _amountController.text = _amountController.text
+              .substring(0, _amountController.text.length - 1);
+          if (_amountController.text.isEmpty) {
+            _amountController.text = '0';
+          }
+        },
+      );
     }
   }
 
@@ -173,11 +196,12 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
                     color: BaseColors.neutral700,
                   ),
                   child: Center(
-                      child: Icon(
-                    Icons.arrow_back,
-                    color: BaseColors.neutral50,
-                    size: 24,
-                  )),
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: BaseColors.neutral50,
+                      size: 24,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -189,6 +213,7 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
             title: 'Checkout Now',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
+                await launch('https://demo.midtrans.com/');
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/topup_success', (route) => false);
               }
