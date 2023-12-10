@@ -283,7 +283,9 @@ Widget buildServices(BuildContext context) {
             HomeServiceItemPage(
               title: 'Send',
               iconUrl: 'assets/images/ic_send.png',
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/tranfers');
+              },
             ),
             HomeServiceItemPage(
               title: 'Withdraw',
