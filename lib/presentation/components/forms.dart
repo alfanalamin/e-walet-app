@@ -8,6 +8,7 @@ class CustomFormField extends StatefulWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final bool showVisibilityIcon; // Tambahkan parameter baru
+  final bool isShowTitle;
 
   const CustomFormField({
     Key? key,
@@ -16,6 +17,7 @@ class CustomFormField extends StatefulWidget {
     this.obscureText = false,
     this.controller,
     this.showVisibilityIcon = false, // Inisialisasi parameter baru
+    this.isShowTitle = true,
   }) : super(key: key);
 
   @override
@@ -31,21 +33,23 @@ class _CustomFormFieldState extends State<CustomFormField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.title,
-          style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
-            color: BaseColors.neutral900,
-            fontFamily: 'Poppins',
+        if (widget.isShowTitle)
+          Text(
+            widget.title,
+            style: AppTheme.appTextTheme.smallNoneMedium!.copyWith(
+              color: BaseColors.neutral900,
+              fontFamily: 'Poppins',
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 8,
-        ),
+        if (widget.isShowTitle)
+          const SizedBox(
+            height: 8,
+          ),
         TextFormField(
           obscureText: widget.obscureText ? _obscureText : false,
           controller: widget.controller,
           decoration: InputDecoration(
-            hintText: widget.hint,
+            hintText: !widget.isShowTitle ? widget.title : null,
             hintStyle: AppTheme.appTextTheme.smallNoneMedium!
                 .copyWith(color: BaseColors.neutral400, fontFamily: 'Poppins'),
             border: OutlineInputBorder(
