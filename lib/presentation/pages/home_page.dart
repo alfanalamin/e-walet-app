@@ -469,10 +469,70 @@ class MoreDialog extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       content: Container(
         width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(30),
         height: 326,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: BaseColors.neutral50,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Do More with your money',
+              style: AppTheme.appTextTheme.regulerNoneHeader1!.copyWith(
+                  color: BaseColors.neutral900, fontFamily: 'Poppins'),
+            ),
+            const SizedBox(
+              height: 14,
+            ),
+            Wrap(
+              spacing: 29,
+              runSpacing: 29,
+              children: [
+                HomeServiceItemPage(
+                  title: 'Data',
+                  iconUrl: 'assets/images/ic_product_data.png',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/data_select_provider');
+                  },
+                ),
+                HomeServiceItemPage(
+                  title: 'Water',
+                  iconUrl: 'assets/images/ic_product_water.png',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/tranfers');
+                  },
+                ),
+                HomeServiceItemPage(
+                  title: 'Stream',
+                  iconUrl: 'assets/images/ic_product_stream.png',
+                  onTap: () {},
+                ),
+                HomeServiceItemPage(
+                  title: 'Movie',
+                  iconUrl: 'assets/images/ic_product_movie.png',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/more');
+                  },
+                ),
+                HomeServiceItemPage(
+                  title: 'Food',
+                  iconUrl: 'assets/images/ic_product_food.png',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/more');
+                  },
+                ),
+                HomeServiceItemPage(
+                  title: 'Travel',
+                  iconUrl: 'assets/images/ic_product_travel.png',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/more');
+                  },
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
