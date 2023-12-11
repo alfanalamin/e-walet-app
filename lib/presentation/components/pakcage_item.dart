@@ -1,5 +1,6 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
+import 'package:ewallet/common/shared_methods.dart';
 import 'package:flutter/material.dart';
 
 class PackageItem extends StatelessWidget {
@@ -43,7 +44,7 @@ class PackageItem extends StatelessWidget {
             height: 2,
           ),
           Text(
-            'Rp $price',
+            formatCurrency(price),
             style: AppTheme.appTextTheme.regulerNoneReguler!
                 .copyWith(color: BaseColors.neutral900, fontFamily: 'Poppins'),
           ),
