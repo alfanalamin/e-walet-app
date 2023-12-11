@@ -295,7 +295,12 @@ Widget buildServices(BuildContext context) {
             HomeServiceItemPage(
               title: 'More',
               iconUrl: 'assets/images/ic_more.png',
-              onTap: () {},
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => const MoreDialog(),
+                );
+              },
             ),
           ],
         )
@@ -451,4 +456,25 @@ Widget buildFriendlyTips() {
       ],
     ),
   );
+}
+
+class MoreDialog extends StatelessWidget {
+  const MoreDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.zero,
+      alignment: Alignment.bottomCenter,
+      content: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 326,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: BaseColors.neutral50,
+        ),
+      ),
+    );
+  }
 }
