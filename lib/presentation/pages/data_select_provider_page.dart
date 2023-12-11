@@ -1,5 +1,6 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
+import 'package:ewallet/common/shared_methods.dart';
 import 'package:ewallet/presentation/components/buttons.dart';
 import 'package:ewallet/presentation/components/select_data_provider_item.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class SelectDataProviderPage extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    'Balance Rp 1.000.000',
+                    'Balance ${formatCurrency(18000000)}',
                     style: AppTheme.appTextTheme.smallNoneReguler!.copyWith(
                         color: BaseColors.neutral900, fontFamily: 'Poppins'),
                   ),
