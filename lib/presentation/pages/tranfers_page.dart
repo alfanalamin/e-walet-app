@@ -40,7 +40,9 @@ class TranfersPage extends StatelessWidget {
           ),
           CostumFilledButton(
             title: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/tranfers_amount');
+            },
           ),
           const SizedBox(
             height: 50,
