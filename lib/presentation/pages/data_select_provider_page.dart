@@ -90,7 +90,9 @@ class SelectDataProviderPage extends StatelessWidget {
           ),
           CostumFilledButton(
             title: 'Continue',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/selectdatapackagpage');
+            },
           ),
           const SizedBox(
             height: 50,
