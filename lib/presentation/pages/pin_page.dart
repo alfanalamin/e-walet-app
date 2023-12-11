@@ -1,5 +1,6 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
+import 'package:ewallet/common/shared_methods.dart';
 import 'package:ewallet/presentation/components/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -20,8 +21,12 @@ class _PinPageState extends State<PinPage> {
     }
     // print(_pinController.text);
 
-    if (_pinController.text == '123456') {
-      Navigator.pop(context, true);
+    if (_pinController.text.length == 6) {
+      if (_pinController.text == '123456') {
+        Navigator.pop(context, true);
+      } else {
+        showCostumSnackbar(context, 'Pin yang anda masukkan salah');
+      }
     }
   }
 
