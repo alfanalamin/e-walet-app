@@ -1,5 +1,6 @@
 import 'package:ewallet/common/app_colors.dart';
 import 'package:ewallet/common/app_fonts.dart';
+import 'package:ewallet/common/shared_methods.dart';
 import 'package:ewallet/presentation/components/home_latest_transactions_page.dart';
 import 'package:ewallet/presentation/components/home_services_item_page.dart';
 import 'package:ewallet/presentation/components/home_tips_item.dart';
@@ -194,7 +195,7 @@ Widget buildWalletCard() {
               .copyWith(color: BaseColors.neutral50, fontFamily: 'Poppins'),
         ),
         Text(
-          'Rp 1.000.000',
+          formatCurrency(12500),
           style: AppTheme.appTextTheme.largeNoneMedium!
               .copyWith(color: BaseColors.neutral50, fontFamily: 'Poppins'),
         ),
@@ -229,7 +230,7 @@ Widget buildLevel() {
                   color: BaseColors.success500, fontFamily: 'Poppins'),
             ),
             Text(
-              'of Rp. 20.000',
+              'of ${formatCurrency(20000)}',
               style: AppTheme.appTextTheme.regulerNoneReguler!.copyWith(
                   color: BaseColors.neutral900, fontFamily: 'Poppins'),
             ),
@@ -329,38 +330,38 @@ Widget buildLatestTransation() {
               borderRadius: BorderRadius.circular(20),
               color: BaseColors.neutral50,
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 HomeLatestTransactionPage(
                   iconUrl: 'assets/images/ic_transaction_cat1.png',
                   title: 'Top Up',
                   time: 'Yesterday',
-                  value: '+ 450.000',
+                  value: '+ ${formatCurrency(450000, symbol: '')}',
                 ),
                 HomeLatestTransactionPage(
                   iconUrl: 'assets/images/ic_transaction_cat2.png',
                   title: 'Cashback',
                   time: 'Sep 3',
-                  value: '+ 22.000',
+                  value: '+ ${formatCurrency(22000, symbol: '')}',
                 ),
                 HomeLatestTransactionPage(
                   iconUrl: 'assets/images/ic_transaction_cat3.png',
                   title: 'Withdraw',
                   time: 'Sep 2',
-                  value: '+ 123.000',
+                  value: '- ${formatCurrency(123000, symbol: '')}',
                 ),
                 HomeLatestTransactionPage(
                   iconUrl: 'assets/images/ic_transaction_cat3.png',
                   title: 'Transfer',
                   time: 'Sep 1',
-                  value: '+ 50.000',
+                  value: '- ${formatCurrency(50000, symbol: '')}',
                 ),
                 HomeLatestTransactionPage(
                   iconUrl: 'assets/images/ic_transaction_cat4.png',
                   title: 'Electric',
                   time: 'Sep 1',
-                  value: '+ 12.300.000',
+                  value: '- ${formatCurrency(12300000, symbol: '')}',
                 ),
               ],
             )),
